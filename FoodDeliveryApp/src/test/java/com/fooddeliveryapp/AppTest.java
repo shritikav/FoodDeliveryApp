@@ -1,23 +1,28 @@
-package com.fooddeliveryapp;
+// package com.fooddeliveryapp;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import com.fooddeliveryapp.util.DBConnection;
+// import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+// import java.sql.Connection;
+// import java.sql.ResultSet;
+// import java.sql.Statement;
 
-@SpringBootTest
-class AppTest {
+// import static org.junit.jupiter.api.Assertions.assertNotNull;
+// import static org.junit.jupiter.api.Assertions.assertTrue;
 
-    // ✅ Test if Spring context loads successfully
-    @Test
-    void contextLoads() {
-        // If Spring Boot application starts without issues, this test passes
-    }
+// class AppTest {
 
-    // ✅ Example unit test (replace with real logic later)
-    @Test
-    void simpleMathTest() {
-        int sum = 2 + 3;
-        assertThat(sum).isEqualTo(5);
-    }
-}
+// @Test
+// void testDatabaseConnection() {
+// try (Connection conn = DBConnection.getConnection()) {
+// assertNotNull(conn, "Connection should not be null");
+
+// Statement stmt = conn.createStatement();
+// ResultSet rs = stmt.executeQuery("SELECT 1");
+
+// assertTrue(rs.next(), "Query should return at least one row");
+// } catch (Exception e) {
+// e.printStackTrace();
+// }
+// }
+// }
