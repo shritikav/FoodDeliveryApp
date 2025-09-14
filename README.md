@@ -70,21 +70,20 @@ CREATE TABLE orders (
     delivery_address VARCHAR(255),
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
-Installation & Setup
+## Installation & Setup
 
-Clone the repository:
+1. **Clone the repository:**
 
+```bash
 git clone https://github.com/shritikav/FoodDeliveryApp.git
 cd FoodDeliveryApp
 
-
-Ensure MySQL is running and update the DBConnection.java with your database credentials.
-
-Build the project with Maven:
-
+2. **Configure database:
+-Ensure MySQL is running.
+-Update DBConnection.java with your MySQL username and password:
+private static final String USER = "root";
+private static final String PASSWORD = "your_password";
+3. **Build the project with Maven:
 mvn clean install
-
-
-Run the application:
-
+4. **Run the application:
 java -cp target/FoodDeliveryApp-1.0-SNAPSHOT.jar com.fooddeliveryapp.App
