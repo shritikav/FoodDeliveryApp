@@ -12,33 +12,19 @@ public class RestaurantDAO {
     public void create(Restaurant r) throws SQLException {
         String sql = "INSERT INTO restaurant (name, address) VALUES (?, ?)";
         try (Connection conn = DBConnection.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, r.getName());
             ps.setString(2, r.getAddress());
             ps.executeUpdate();
-        }
-    }
-
-    public Restaurant getById(long id) throws SQLException {
-        String sql = "SELECT * FROM restaurant WHERE id=?";
-        try (Connection conn = DBConnection.getConnection();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setLong(1, id);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                Restaurant r = new Restaurant();
-                r.setId(rs.getLong("id"));
-                r.setName(rs.getString("name"));
-                r.setAddress(rs.getString("address"));
-                return r;
-            }
-            return null;
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next())
+                r.setId(rs.getLong(1));
         }
     }
 
     public List<Restaurant> getAll() throws SQLException {
-        String sql = "SELECT * FROM restaurant";
         List<Restaurant> list = new ArrayList<>();
+        String sql = "SELECT * FROM restaurant";
         try (Connection conn = DBConnection.getConnection();
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(sql)) {

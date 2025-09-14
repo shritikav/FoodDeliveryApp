@@ -5,6 +5,7 @@ public class Orders {
     private long userId;
     private double total;
     private String status;
+    private String deliveryAddress;
 
     // Getters and Setters
     public long getId() {
@@ -37,5 +38,13 @@ public class Orders {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(String deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
     }
 }
