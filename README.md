@@ -38,7 +38,7 @@ A **console-based Java application** for managing restaurants, menu items, users
 
 1. Create the database:
 
-
+```sql
 CREATE DATABASE FoodDeliveryApp;
 USE FoodDeliveryApp;
 CREATE TABLE user (
@@ -70,22 +70,32 @@ CREATE TABLE orders (
     delivery_address VARCHAR(255),
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
-
+```
 ---
 
 ## Installation & Setup
 
 1. **Clone the repository:**
+```bash
 
 git clone https://github.com/shritikav/FoodDeliveryApp.git
 cd FoodDeliveryApp
-
+```
 2. **Configure database:**
 -Ensure MySQL is running.
 -Update DBConnection.java with your MySQL username and password:
+```bash
+
 private static final String USER = "root";
 private static final String PASSWORD = "your_password";
-3. **Build the project with Maven:
+```
+3. **Build the project with Maven:**
+```bash
+
 mvn clean install
-4. **Run the application:
+```
+4. **Run the application:**
+```bash
+
 java -cp target/FoodDeliveryApp-1.0-SNAPSHOT.jar com.fooddeliveryapp.App
+```
