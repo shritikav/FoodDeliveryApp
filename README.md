@@ -82,8 +82,8 @@ git clone https://github.com/shritikav/FoodDeliveryApp.git
 cd FoodDeliveryApp
 ```
 2. **Configure database:**
--Ensure MySQL is running.
--Update DBConnection.java with your MySQL username and password:
+- Ensure MySQL is running.
+- Update DBConnection.java with your MySQL username and password:
 ```bash
 
 private static final String USER = "root";
